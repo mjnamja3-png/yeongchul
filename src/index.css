@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Gungsuh';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ChosunGs.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Global font override to 궁서체 (Gungsuh) across the entire application */
+* {
+  font-family: 'Gungsuh', 'ChosunGs', 'GungsuhChe', '궁서', '궁서체', serif !important;
+}
+
+body {
+  font-family: 'Gungsuh', 'ChosunGs', 'GungsuhChe', '궁서', '궁서체', serif !important;
+}
+
+@layer utilities {
+  .font-calligraphy,
+  .font-korean,
+  .font-gungseo {
+    font-family: 'Gungsuh', 'ChosunGs', 'GungsuhChe', '궁서', '궁서체', serif !important;
+  }
+}
+
+/* Motion blur flying animations for Screen 4 */
+@keyframes flyBillBlur {
+  0% {
+    transform: translate(var(--start-x, 0px), var(--start-y, 220px)) scale(0.85);
+    filter: blur(5px);
+    opacity: 0.8;
+  }
+  40% {
+    filter: blur(3px);
+  }
+  80% {
+    filter: blur(1px);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes flyCoinBlur {
+  0% {
+    transform: translate(var(--start-x, 0px), var(--start-y, 200px)) scale(0.8);
+    filter: blur(4px);
+    opacity: 0.7;
+  }
+  50% {
+    filter: blur(2px);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+/* Gold coins falling into open wallet on Screen 3 */
+@keyframes coinStreamFall {
+  0% {
+    transform: translateY(-120px) scale(0.7) rotate(-20deg);
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  80% {
+    transform: translateY(40px) scale(1) rotate(15deg);
+    opacity: 0.95;
+    filter: drop-shadow(0 0 12px rgba(250, 204, 21, 0.8));
+  }
+  100% {
+    transform: translateY(90px) scale(0.4) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+@keyframes billStreamFall {
+  0% {
+    transform: translateY(-140px) scale(0.6) rotate(15deg);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  80% {
+    transform: translateY(30px) scale(0.9) rotate(-10deg);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(80px) scale(0.3) rotate(0deg);
+    opacity: 0;
+  }
+}
+
+.animate-fly-bill {
+  animation: flyBillBlur 0.75s cubic-bezier(0.2, 0.8, 0.25, 1) forwards;
+}
+
+.animate-fly-coin {
+  animation: flyCoinBlur 0.7s cubic-bezier(0.2, 0.8, 0.25, 1) forwards;
+}
+
+/* Custom pulse for pay button */
+@keyframes payButtonPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 4px 14px 0 rgba(22, 163, 74, 0.39);
+  }
+  50% {
+    transform: scale(1.03);
+    box-shadow: 0 6px 20px 0 rgba(22, 163, 74, 0.55);
+  }
+}
+
+.animate-pay-pulse {
+  animation: payButtonPulse 1.6s infinite ease-in-out;
+}

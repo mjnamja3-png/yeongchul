@@ -1,0 +1,6 @@
+{
+  "name": "영철씨의 지갑",
+  "description": "어르신들을 위한 직관적이고 따뜻한 한국 화폐 현금 결제 및 거스름돈 시뮬레이터",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
